@@ -10,21 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_090121) do
+ActiveRecord::Schema.define(version: 2019_12_03_185149) do
 
   create_table "items", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "order_id"
     t.text "name"
     t.float "price"
-    t.integer "review"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "orders", force: :cascade do |t|
-    t.float "subtotal"
-    t.integer "qualtity"
+    t.integer "user_id"
+    t.integer "item_id"
+    t.integer "quantity"
+    t.integer "review"
+    t.boolean "delivered", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
