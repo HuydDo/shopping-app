@@ -1,2 +1,2 @@
-class ItemsController < ApplicationController
+class ItemsController < ActionController::Base
 end
