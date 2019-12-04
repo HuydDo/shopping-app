@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      session[:user_id] = @user.user_id
+      session[:user_id] = @user.id
       redirect_to items_path
     else
       render :new
