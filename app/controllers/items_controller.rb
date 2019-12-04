@@ -1,6 +1,2 @@
-class ItemsController < ActionController::Base
-  def index
-    @items = Item.all
-  end
-
+class ItemsController < ApplicationController
 end
