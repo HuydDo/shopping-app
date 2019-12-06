@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     
     if @user.save
       session[:user_id] = @user.id
-      redirect_to items_path
+      redirect_to user_path(@user)
     else
       render :new
     end
