@@ -4,7 +4,7 @@
    <p><%= item.description %></p>
    Orders: 
    <% item.orders.each do |order| %>
-    <%= link_to order.user.username, 
+    <%= link_to order.user.name, 
       user_path(order.user) %>'s order was
       <%=order.delivered  ? "delivered" : "not delivered" %>
    <% end %>

@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
+    # raise user_params.inspect
     @user = User.create(user_params)
+    
     if @user.save
       session[:user_id] = @user.id
       redirect_to items_path
@@ -20,7 +22,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username,:password)
+    params.require(:user).permit(:name,:password)
   end
 
 end
