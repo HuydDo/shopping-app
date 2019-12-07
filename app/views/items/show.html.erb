@@ -1,5 +1,5 @@
 <h1><%= @item.name %></h1>
-Price: <%= @item.price %><br />
+Price: $<%= @item.price %><br />
 Description: <%= @item.description %><br />
  <%= form_tag("/orders", method: "post") do %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

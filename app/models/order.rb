@@ -1,10 +1,11 @@
 class Order < ApplicationRecord
   belongs_to :item
   belongs_to :user
+  validates :quantity, presence: true
 
   def order_item
     "Thanks for ordering the #{self.item.name}! 
-    Subtotal: #{total_amount}"
+    Subtotal: $#{total_amount}"
   end
 
   def total_amount
