@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
     if order
       response = order.order_item
       flash[:notice] = response
+     
       redirect_to user_path(order.user)
     else
       redirect_to item_path(order.item)
