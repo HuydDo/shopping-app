@@ -2,10 +2,11 @@
   <h3><%= item.name %></h3>
    <p>$<%= item.price %></p>
    <p><%= item.description %></p>
-   Orders: 
+  <!--> Orders: 
    <% item.orders.each do |order| %>
     <%= link_to order.user.name, 
       user_path(order.user) %>'s order was
       <%=order.delivered  ? "delivered" : "not delivered" %>
    <% end %>
+   -->
 </div> 

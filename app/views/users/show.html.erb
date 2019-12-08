@@ -1,5 +1,17 @@
-<%# if @user %>
+<% if @user %>
   <h1>Welcome <%= @user.name %></h1>
 
-
-<%= link_to "Listing Items", items_path %>
+  <% if @user.orders %>
+      Your Orders: 
+     <ul>
+       <% @user.orders.each do |order| %>
+        <li><%= link_to order.user.name, 
+          user_path(order.user) %>'s order was
+          <%=order.delivered  ? "delivered" : "not delivered" %>
+       <% end %>
+        </li>
+     </ul>
+  <% end %>
+<% else %>
+  <%= link_to "Listing Items", items_path %>
+<% end %>
