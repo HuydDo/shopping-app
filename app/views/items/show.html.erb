@@ -8,11 +8,16 @@ Description: <%= @item.description %><br />
     <%= order.quantity %>
   <%  end %>
   -->
+
 <%= link_to "Listing Items", items_path %>
 
-<%= form_tag("/orders", method: "post") do %>
-<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= hidden_field_tag :item_id, @item.id %><br />
-  <%= button_tag "Add to Cart" %>
+<%# form_tag("/orders", method: "post") do %>
+<%= form_for @order do |f|%>
+Qlt: <%= f.select :quantity, (0..30) %>
+<%# f.hidden_field :authenticity_token, form_authenticity_token %>
+ 
+  <%= f.hidden_field :item_id %><br />
+ <%=  hidden_field_tag @item.id %>
+  <%= f.button "Add to Cart" %>
 <% end %>
 
