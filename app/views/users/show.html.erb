@@ -8,8 +8,8 @@
         <li><%= link_to order.item.name, 
           item_path(order.item) %>
           Price: $<%=  order.item.price %>
-          Quantity:<%= order.quantity %> 
-          <%=order.delivered  ? "delivered" : "not delivered" %>
+          Qty: <%= order.quantity %> 
+            <%#order.delivered  ? "delivered" : "not delivered" %> 
         </li>
        <% end %>
      </ul>
