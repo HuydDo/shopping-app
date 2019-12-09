@@ -1,11 +1,18 @@
 <h2><%= @item.name %></h2>
 Price: $<%= @item.price %><br />
 Description: <%= @item.description %><br />
+
+<!-- Orders: 
+  <% @item.orders.each do |order| %>
+    <%= link_to order.user.name, user_path(order.user) %>
+    <%= order.quantity %>
+  <%  end %>
+  -->
 <%= link_to "Listing Items", items_path %>
 
 <%= form_tag("/orders", method: "post") do %>
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <%= hidden_field_tag :item_id, @item.id %><br />
-  <%= button_tag "Order" %>
+  <%= button_tag "Add to Cart" %>
 <% end %>
 

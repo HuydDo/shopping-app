@@ -9,10 +9,7 @@
   <% end %>
 </ul>
  
-
-  
- 
- <table>
+<table>
   <thead>
     <tr>
       <th colspan = "4"></th>
@@ -37,6 +34,7 @@
       <tr>
         <td><%= item.name %></td>
         <td>$<%= item.price %></td>
+        <td><%= item.description %></td>
         <td><%= link_to "Go to #{item.name}", item_path(item)%></td>
       </tr>
       <% end %>

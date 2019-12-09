@@ -5,7 +5,7 @@ class Order < ApplicationRecord
 
   def order_item
     "Thanks for ordering the #{self.item.name}! 
-    Subtotal: $#{total_amount}"
+    Subtotal( items): $#{total_amount}"
   end
 
   def total_amount
