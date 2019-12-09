@@ -2,18 +2,18 @@ class OrdersController < ApplicationController
   before_action :require_login
 
   def create
-    # raise params.inspect
+    
     # order = Order.create(user_id: current_user.id, item_id: params[:item_id], quantity: params[:quantity])
     order = current_user.orders.create(order_params)
-    # raise params.inspect
+    raise order.inspect
     if order
       # response = order.order_item
       # flash[:notice] = response
-      # raise params.inspect
+      raise params.inspect
      
       redirect_to user_path(order.user)
     else
-      redirect_to item_path(order.item)
+      redirect_to item_path(order.item_id)
     end
   end
 

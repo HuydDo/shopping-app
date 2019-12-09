@@ -9,15 +9,16 @@ Description: <%= @item.description %><br />
   <%  end %>
   -->
 
-<%= link_to "Listing Items", items_path %>
 
 <%# form_tag("/orders", method: "post") do %>
+
 <%= form_for @order do |f|%>
-Qly: <%= f.select :quantity, (0..30) %>
-<%# f.hidden_field :authenticity_token, form_authenticity_token %>
+  Qty: <%= f.select :quantity, (0..30), :prompt => 'Select' %><br /><br />
+  <%# f.hidden_field :authenticity_token, form_authenticity_token %>
  
-  <%= f.hidden_field :item_id %><br />
- <%=  hidden_field_tag @item.id %>
+  <%= f.hidden_field :item_id %>
+  <%=  hidden_field_tag @item.id %>
   <%= f.button "Add to Cart" %>
 <% end %>
-
+<br />
+<%= link_to "Listing Items", items_path %>
