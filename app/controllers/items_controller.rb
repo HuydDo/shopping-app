@@ -14,8 +14,8 @@ class ItemsController < ApplicationController
 
   def show
     @order = Order.new
-    # params[:selected]="none"
-    # params[:request][:item_id] = request.item_id
+  
+    
   end
 
   def edit
