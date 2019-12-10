@@ -1,27 +1,23 @@
-<%# if @user %>
-  <h1>Welcome <%= @user.name %></h1>
+<h1>Welcome <%= @user.name %></h1>
 
-  <% if @user.orders %>
-     Shopping Cart: 
-     <ul>
-       <% item_count = 0 %>
-       <% subtotal = 0.0 %>
-       <% @user.orders.each do |order| %>
-        <li><%= link_to order.item.name, 
-          item_path(order.item) %>
-          Price: $<%=  order.item.price %>
-          Qty: <%= order.quantity %> 
-          Total: <%= order.item.price * order.quantity%>
-          
-          <% item_count += 1 %>
-          <% subtotal += order.item.price * order.quantity%>
-            <%#order.delivered  ? "delivered" : "not delivered" %> 
-        </li>
-       <% end %>
-     </ul>
-  <% end %>
-<%# else %>
-Items: <%= item_count %><br />
-Subtotal:$ <%= subtotal %><br />
+<% if @user.orders %>
+   Shopping Cart: 
+   <ul>
+     <% item_count = 0 %>
+     <% subtotal = 0.0 %>
+     <% @user.orders.each do |order| %>
+      <li><%= link_to order.item.name, 
+        item_path(order.item) %>
+        Price: $<%=  order.item.price %>
+        Qty: <%= order.quantity %> 
+        Total: $<%= order.item.price * order.quantity%>
+        
+        <% item_count += 1 %>
+        <% subtotal += order.item.price * order.quantity%>
+          <%#order.delivered  ? "delivered" : "not delivered" %> 
+      </li>
+     <% end %>
+   </ul>
+<% end %>
+Subtotal (<%= item_count %> items): $<%= subtotal %><br />
 <%= link_to "Listing Items", items_path %>
-<%# end %>
