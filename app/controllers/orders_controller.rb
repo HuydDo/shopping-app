@@ -2,10 +2,10 @@ class OrdersController < ApplicationController
   before_action :require_login
 
   def create
-    
+    raise order_params.inspect
     # order = Order.create(user_id: current_user.id, item_id: params[:item_id], quantity: params[:quantity])
-    # order = Order.create(order_params)    
-    order = current_user.orders.create(order_params)
+    order = Order.create(order_params)    
+    # order = current_user.orders.create(order_params)
     # raise order.inspect
     if order
       # response = order.order_item
