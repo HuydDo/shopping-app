@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     if order
       # response = order.order_item
       # flash[:notice] = response
-      # raise params.inspect  
+      raise params.inspect  
      
       redirect_to user_path(order.user)
     else
