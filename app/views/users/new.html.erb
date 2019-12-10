@@ -1,6 +1,8 @@
 <h1>New User Sign Up</h1>
 
 <% if @user.errors.any? %>
+  <h2><%= pluralize(@user.errors.count, "error") %> 
+  prohibited this user from being save:</h2>
   <% @user.errors.full_messages.each do |msg| %>
    <p class="error" ><%= msg %></p>
   <% end %>
