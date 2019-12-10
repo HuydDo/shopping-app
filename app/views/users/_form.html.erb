@@ -1,0 +1,21 @@
+<% if @user.errors.any? %>
+  <h2><%= pluralize(@user.errors.count, "error") %> 
+  prohibited this user from being save:</h2>
+  <% @user.errors.full_messages.each do |msg| %>
+   <p class="error" ><%= msg %></p>
+  <% end %>
+<% end %>
+
+<%= form_with model: @user, local: true do |f| %>
+  <div class="field">
+    <%= f.label "Name:" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "Password:" %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end  %>
