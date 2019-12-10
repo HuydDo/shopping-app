@@ -9,11 +9,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    
+    Item.create(item_params)
   end
 
   def show
     @order = Order.new
+    # params[:selected]="none"
+    # params[:request][:item_id] = request.item_id
   end
 
   def edit

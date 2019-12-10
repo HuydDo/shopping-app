@@ -13,12 +13,17 @@ Description: <%= @item.description %><br />
 <%# form_tag("/orders", method: "post") do %>
 
 <%= form_for @order do |f|%>
-  Qty: <%= f.select :quantity, (0..30), :prompt => 'Select' %><br /><br />
+  <!-- Qty: <%= f.select :quantity, (0..30), :prompt => 'Select' %><br /><br />
+-->
+
+   Qty: <%= f.select :quantity, (0..30) %><br /><br />
   <%# f.hidden_field :authenticity_token, form_authenticity_token %>
- 
+  
   <%= f.hidden_field :item_id %>
-  <%=  hidden_field_tag @item.id %>
-  <%= f.button "Add to Cart" %>
+  <%#  hidden_field_tag @item.id %>
+  <%# hidden_field_tag 'selected', 'none'  %>
+ 
+  <%= f.submit "Add to Cart" %>
 <% end %>
 <br />
 <%= link_to "Listing Items", items_path %>
