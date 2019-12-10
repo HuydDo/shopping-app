@@ -12,32 +12,28 @@
 <table>
   <thead>
     <tr>
-      <th colspan = "4"></th>
+      <th colspan = "3"></th>
     </tr>
   </thead>
-    <tbody>
-      <tr>
-        <td>
-          <strong>Name</strong>
-        </td>
-        <td>  
-           <strong>Price</strong>
-        </td>
-        <td>
-          <strong>Details</strong>
-        </td>
-        <td>
-          <strong>Qualtity</strong>
-        </td>
-      </tr>
-      <% @items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td>$<%= item.price %></td>
-        <td><%= item.description %></td>
-        <td><%= link_to "Go to #{item.name}", item_path(item)%></td>
-      </tr>
-      <% end %>
-    </tbody>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Name</strong>
+      </td>
+      <td>  
+         <strong>Price</strong>
+      </td>
+      <td>
+        <strong>Details</strong>
+      </td>
+    </tr>
+    <% @items.each do |item| %>
+    <tr>
+      <td><%= link_to item.name, item_path(item) %></td>
+      <td>$<%= item.price %></td>
+      <td><%= item.description %></td>
+    </tr>
+    <% end %>
+  </tbody>
  </table>
 
