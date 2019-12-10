@@ -1,4 +1,3 @@
-
 <p>
   <strong>Name:</strong>
   <%= @item.name %>
@@ -26,8 +25,6 @@ Description: <%= @item.description %><br />
 <%# form_tag("/orders", method: "post") do %>
 <%# form_for(Order.new) do |f|%>
 <%= form_for(@order) do |f|%>
-
-
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
