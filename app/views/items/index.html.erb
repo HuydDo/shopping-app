@@ -2,7 +2,7 @@
  
 <ul>
   <% @items.each do |item| %>
-    <% render "item", item: item %>
+    <%# render "form", item: item %>
     <li><%= link_to item.name, item_path(item) %>
         $<%= item.price %> - <%= item.description %>
     </li>

@@ -1,3 +1,19 @@
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+
 <h2><%= @item.name %></h2>
 Price: $<%= @item.price %><br />
 Description: <%= @item.description %><br />
@@ -11,11 +27,10 @@ Description: <%= @item.description %><br />
 
 
 <%# form_tag("/orders", method: "post") do %>
+<%= form_for(@order) do |f|%>
 
-<%= form_for @order do |f|%>
   <!-- Qty: <%= f.select :quantity, (0..30), :prompt => 'Select' %><br /><br />
 -->
-
    Qty: <%= f.select :quantity, (0..30) %><br /><br />
   <%# f.hidden_field :authenticity_token, form_authenticity_token %>
   

@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-
+    @item = Item.new
   end
 
   def create
@@ -14,8 +14,6 @@ class ItemsController < ApplicationController
 
   def show
     @order = Order.new
-  
-    
   end
 
   def edit
@@ -31,6 +29,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.requires(:item).permit(:name, :price, :description)
+    params.require(:item).permit(:name, :price, :description)
   end
 end
