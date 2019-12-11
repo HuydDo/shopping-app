@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :show, :edit, :update, :destroy]
   # delete '/order/:id', to: 'order#destroy', as:'order'
   # post '/orders', to: 'orders#create'
+
+  get '/auth/facebook/callback' => 'session#create'
 end
