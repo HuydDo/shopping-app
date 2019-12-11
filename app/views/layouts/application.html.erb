@@ -15,7 +15,9 @@
 
     <%# javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%# javascript_tag 'application', 'data-turbolinks-track': 'reload' %>
-   
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -36,7 +38,7 @@
         <h2>Facebook UID: <%= @user.uid %></h2>
         <img src="<%= @user.image %>">
       <% else %>
-         <li><%= link_to('Log in with Facebook!', '/auth/facebook') %></li>
+         <li><%= link_to('Log in with Facebook', '/auth/facebook') %></li>
       <% end %>
      
     <% end %>
