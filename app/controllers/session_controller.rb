@@ -4,21 +4,27 @@ class SessionController < ApplicationController
 
    def create
       # raise params.inspect
-    @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      u.name = auth['info']['name']
-      u.email = auth['info']['email']
-      u.image = auth['info']['image']
+    if auth
+      @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        
+        u.name = auth['info']['name']
+        u.email = auth['info']['email']
+        u.password = SecureRandom.hex
+      end
+      # byebug
+      # u.image = auth['info']['image']
       session[:user_id] = @user.id
       redirect_to user_path(@user)
       # render 'welcome/home'
-    end
-    user = User.find_by(:name => params[:user][:name])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to user_path(user)
-      # redirect_to items_path
     else
-      render :new
+      user = User.find_by(:name => params[:user][:name])
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        redirect_to user_path(user)
+        # redirect_to items_path
+      else
+        render :new
+      end
     end
   end
 
