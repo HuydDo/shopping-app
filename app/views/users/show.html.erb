@@ -6,7 +6,6 @@
     <% @user.orders.each do |order| %>
       <%= render partial: 'listitem', locals: {order: order} %>
     <% end %>
-   
    </ul>
    <%= subtotal(@user) %>
    <!-- <% item_count = 0 %>
