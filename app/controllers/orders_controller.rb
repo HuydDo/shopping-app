@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :require_login
+  before_action :require_login, :find_item, only: [:edit,:update]
 
   def create
     # raise params.inspect 
@@ -20,18 +20,19 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    # raise params.inspect
-    @order = Order.find_by(id: params[:id])
     @item = Item.find_by(id: @order.item_id)
   end
 
   def update
     # raise params.inspect
-    @order = Order.find(params[:id])
     @order.update(quantity: params[:order][:quantity])
     redirect_to user_path(current_user)
   end
   private
+  def find_item
+    @order = Order.find(params[:id])
+  end
+
   def order_params
     params.require(:order).permit(:user_id, :item_id, :quantity, :review, :delivered)
   end 
