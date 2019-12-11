@@ -19,5 +19,5 @@
      <% end %>
    </ul>
 <% end %>
-Subtotal (<%= item_count %> items): $<%= subtotal %><br />
+Subtotal (<%= item_count %> items): <%= number_to_currency(subtotal) %><br />
 <%= link_to "Listing Items", items_path %>

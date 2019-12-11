@@ -4,14 +4,6 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
-  def new
-    @item = Item.new
-  end
-
-  def create
-    Item.create(item_params)
-  end
-
   def show
     @order = Order.new
   end
