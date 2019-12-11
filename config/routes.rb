@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   post '/signin', to: 'session#create'
   delete '/session', to: 'session#destroy'
 
-  resources :orders, only: [:create, :show, :edit]
+  resources :orders, only: [:create, :show, :edit, :update]
   # post '/orders', to: 'orders#create'
 end

@@ -5,7 +5,7 @@
       Total: $<%= order.item.price * order.quantity%>
    <%= link_to "Edit", edit_order_path(order) %>
     <%= link_to "Delete", edit_order_path(order) %>
-    <%= link_to "Delete", [@invoice, purchase], method: :delete, confirm: "Are you sure you want to delete this order?" %>
+    <%# link_to "Delete", [@invoice, purchase], method: :delete, confirm: "Are you sure you want to delete this order?" %>
  </li>
 
   <!-- add link or button for edit and delete
