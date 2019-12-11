@@ -1,0 +1,8 @@
+  <li>
+    <%= link_to order.item.name,  item_path(order.item) %>
+      Price: $<%=  order.item.price %>
+      Qty: <%= order.quantity %> 
+      Total: $<%= order.item.price * order.quantity%>
+      #add link or button for edit and delete
+      #go to edit_order_path
+  </li>

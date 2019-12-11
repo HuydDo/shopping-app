@@ -1,0 +1,52 @@
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+
+<h2><%= @item.name %></h2>
+Price: $<%= @item.price %><br />
+Description: <%= @item.description %><br />
+
+ user_id:<%=current_user.id %>
+ item_id:<%=@item.id %>
+
+
+<%# form_tag("/orders", method: "post") do %>
+<%# form_for(Order.new) do |f|%>
+<%= form_for(@order) do |f|%>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <!-- Qty: <%= f.select :quantity, (0..30), :prompt => 'Select' %><br /><br />
+-->
+   Qty: <%= f.select :quantity, (1..30) %><br /><br />
+  <%# f.hidden_field :authenticity_token, form_authenticity_token %>
+  <%# f.hidden_field :item_id %>
+  <%# f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :item_id, value: @item.id %>
+  <%# hidden_field_tag 'selected', 'none'  %>
+ 
+  <%= f.submit "Add to Cart" %>
+<% end %>
+<br />

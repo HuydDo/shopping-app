@@ -3,7 +3,13 @@
 <% if @user.orders %>
    Shopping Cart: 
    <ul>
-     <% item_count = 0 %>
+    <% @user.orders.each do |order| %>
+      <%= render partial: 'listitem', locals: {order: order} %>
+    <% end %>
+   
+   </ul>
+   <%= subtotal(@user) %>
+   <!-- <% item_count = 0 %>
      <% subtotal = 0.0 %>
      <% @user.orders.each do |order| %>
       <li><%= link_to order.item.name, 
@@ -14,10 +20,17 @@
         
         <% item_count += 1 %>
         <% subtotal += order.item.price * order.quantity%>
-          <%#order.delivered  ? "delivered" : "not delivered" %> 
+        <%#order.delivered  ? "delivered" : "not delivered" %> 
       </li>
      <% end %>
-   </ul>
+    -->
+   
 <% end %>
-Subtotal (<%= item_count %> items): <%= number_to_currency(subtotal) %><br />
+<!--Subtotal (<%= item_count %> items): <%= number_to_currency(subtotal) %><br /> -->
+<!-- Subtotal (<%= pluralize(@user.orders.count, "item") %>): <%= number_to_currency(subtotal) %><br />
+-->
+<br />
 <%= link_to "Listing Items", items_path %>
+
+
+
