@@ -28,6 +28,12 @@ class OrdersController < ApplicationController
     @order.update(quantity: params[:order][:quantity])
     redirect_to user_path(current_user)
   end
+
+  def destroy
+    Order.find(params[:id]).destroy
+    redirect_to user_path(current_user)
+  end
+
   private
   def find_item
     @order = Order.find(params[:id])
