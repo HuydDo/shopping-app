@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   get '/signin', to: 'session#new'
   post '/signin', to: 'session#create'
   delete '/session', to: 'session#destroy'
-  post '/orders', to: 'orders#create'
+
+  resources :orders, only: [:new, :create, :show]
+  # post '/orders', to: 'orders#create'
 end
