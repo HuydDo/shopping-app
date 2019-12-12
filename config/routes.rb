@@ -15,4 +15,9 @@ Rails.application.routes.draw do
   # post '/orders', to: 'orders#create'
 
   get '/auth/facebook/callback' => 'session#create'
+
+ resources :items, only: [:show] do
+  resources :orders, only: [:new, :index, :show]
+ end
+
 end
