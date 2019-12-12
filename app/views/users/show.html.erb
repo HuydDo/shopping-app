@@ -1,12 +1,35 @@
 <h1>Welcome <%= @user.name %></h1>
 
 <% if @user.orders %>
-   Shopping Cart: 
-   <ul>
+   <h4>Shopping Cart:</h4> 
+   
+    <div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+   
+  
     <% @user.orders.each do |order| %>
       <%= render partial: 'listitem', locals: {order: order} %>
     <% end %>
-   </ul>
+   
+   
+   </tbody>
+    </table>
+  </div>
+</div>
+
    <%= subtotal(@user) %>
    <!-- <% item_count = 0 %>
      <% subtotal = 0.0 %>
