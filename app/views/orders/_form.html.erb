@@ -1,7 +1,9 @@
 <p>
   <strong>Name:</strong>
   <%= @item.name %>
-</p>
+ <%=  link_to "New Order", new_item_order_path(@item) %>
+
+ </p>
 
 <p>
   <strong>Price:</strong>
