@@ -1,1 +1,3 @@
-Subtotal (<%= item_count %> items): <%= number_to_currency(subtotal) %><br /> 
+<!--Subtotal (<%= item_count %> items): <%= number_to_currency(subtotal) %><br />  -->
+
+Subtotal (<%= pluralize(@user.orders.count, "item") %>): <%= number_to_currency(subtotal) %><br />
