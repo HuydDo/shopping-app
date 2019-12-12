@@ -9,7 +9,7 @@
 Item.delete_all
 item_list = [
   [ "Cambridge Soundworks Ultra Portable Wireless Bluetooth Speaker", 21.99, "Lightweight, portable and water resistant, this clear sounding speaker is perfect for music on the go"  ],
-  [ "Birchbox", 45.00, "Birchbox 3-Month Subscription Gift Car"  ],
+  [ "Birchbox", 45.00, "Birchbox 3-Month Subscription Gift Card"  ],
   [ "Amazon Prime", 39.99, "Purchase a three-month Prime gift membership"  ],
   [ "Yet Rambler Mug", 34.99, "Hands down, the best way to keep it hot or cold on the go" ],
   [ "Anthropologie Lumi Monogram Scented Candle", 28.00, "A monogrammed candle, with the scent of tropical fruits and island berries"  ],

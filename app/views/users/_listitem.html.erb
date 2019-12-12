@@ -12,8 +12,9 @@
 
  
           <tr>
-            <td> <%= link_to order.item.name,  item_path(order.item) %></td>
-            <td><%=  order.item.price %></td>
+        <!--    <td> <%= link_to order.item.name,  item_path(order.item) %></td>  -->
+            <td> <%= order.item.name %></td>
+            <td><%=  number_to_currency(order.item.price) %></td>
             <td><%= order.quantity %></td>
             <td> <%= number_to_currency(order.item.price * order.quantity)%></td>
             <td> <%= link_to "Edit", edit_order_path(order) %></td>
