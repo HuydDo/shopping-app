@@ -25,7 +25,9 @@ class OrdersController < ApplicationController
 
   def update
     # raise params.inspect
-    @order.update(quantity: params[:order][:quantity])
+    # @order.update(quantity: params[:order][:quantity])
+    @order.update(quantity: params[:order][:quantity],review: params[:order][:review])
+
     redirect_to user_path(current_user)
   end
 
@@ -46,6 +48,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:user_id, :item_id, :quantity, :review, :delivered)
+    params.require(:order).permit(:user_id, :item_id, :quantity, :review)
   end 
 end
