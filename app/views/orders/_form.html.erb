@@ -1,9 +1,7 @@
 <p>
   <strong>Name:</strong>
   <%= @item.name %>
- <%=  link_to "New Order", new_item_order_path(@item) %>
-
- </p>
+</p>
 
 <p>
   <strong>Price:</strong>
@@ -49,7 +47,15 @@ Description: <%= @item.description %><br />
   <%# f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :item_id, value: @item.id %>
   <%# hidden_field_tag 'selected', 'none'  %>
+  
+  <!-- for nested resource-->
+  <label>Select review star</label><br>
+  <%= f.select :review, (1..5) %><br><br>
+
+  
   <%= f.submit "Add to Cart" %>
   <br />
   <br />
 <% end %>
+
+

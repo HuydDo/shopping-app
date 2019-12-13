@@ -3,7 +3,7 @@
 <% if @user.orders %>
    <h4>Shopping Cart:</h4> 
    
-    <div class="media">
+ <div class="media">
   <div class="media-body">
     <table class="table table-hover">
       <thead>
@@ -16,17 +16,12 @@
           <th></th>
         </tr>
       </thead>
-    
       <tbody>
-   
-  
-    <% @user.orders.each do |order| %>
-      <%= render partial: 'listitem', locals: {order: order} %>
-    <% end %>
-   
-   
-   </tbody>
-    </table>
+        <% @user.orders.each do |order| %>
+          <%= render partial: 'listitem', locals: {order: order} %>
+       <% end %>
+      </tbody>
+     </table>
   </div>
 </div>
 

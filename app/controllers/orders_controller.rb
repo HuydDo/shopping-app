@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  # for nested routes
+  # for nested resources
   def new
     @order = Order.new(item_id: params[:item_id])
   end

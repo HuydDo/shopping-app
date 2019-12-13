@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   # validates :name, uniqueness: true
   validates :name, presence: true
+  validates :email, uniqueness: true
   has_secure_password
 
   # def order_item
