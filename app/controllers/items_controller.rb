@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :new, :update]
   def index
     @items = Item.all
+    @popular = Item.most_order
   end
 
   def show

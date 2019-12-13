@@ -4,7 +4,7 @@
  <table class="table table-hover">
   <thead>
     <tr>
-      <th colspan = "4"></th>
+      <th colspan = "5"></th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +19,7 @@
         <strong>Quantity</strong>
       </td>
       <td>
-        <strong>review</strong>
+        <strong>Review</strong>
       </td>
 
     </tr>
@@ -29,6 +29,9 @@
       <td><%= Item.find(order.item_id).name %></td>
       <td><%= order.quantity %></td>
       <td><%= order.review %></td>
+      <% if order.user == current_user %>
+       <td> <%= link_to "Edit Review", edit_item_order_path(order.item, order) if order.item %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

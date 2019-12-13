@@ -4,7 +4,7 @@
 
 
 <%# link_to "Listing Items", items_path %>
-<%=  link_to "Add Review", new_item_order_path(@item) %>
+<%=  link_to "Show all orders", item_orders_path(@item) %>
 <p>Reviews:</p>
 <% @item.orders.each do |order| %>
   <div><%= order.review %></div>

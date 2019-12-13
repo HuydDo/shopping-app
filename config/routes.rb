@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'session#create'
 
  resources :items, only: [:show, :index] do
-  resources :orders, only: [:show, :index, :new]
+  resources :orders, only: [:show, :index, :new,:edit]
   #edit update
  end
 
