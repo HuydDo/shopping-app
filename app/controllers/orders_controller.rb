@@ -1,6 +1,12 @@
 class OrdersController < ApplicationController
   before_action :require_login, :find_item, only: [:edit,:update]
 
+  def index
+    
+    @orders = Order.all
+    
+  end
+
   def create
     # raise params.inspect 
     # raise order_params.inspect
@@ -26,6 +32,8 @@ class OrdersController < ApplicationController
   def update
     # raise params.inspect
     # @order.update(quantity: params[:order][:quantity])
+
+    #for nested resources
     @order.update(quantity: params[:order][:quantity],review: params[:order][:review])
 
     redirect_to user_path(current_user)
