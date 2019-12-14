@@ -2,14 +2,9 @@ class OrdersController < ApplicationController
   before_action :require_login, :find_item, only: [:edit,:update]
 
   def index
-
     # raise params.inspect
     @orders = Order.where(item_id:params[:item_id])
   end
-
-  
-
-  
 
   def create
     # raise params.inspect 

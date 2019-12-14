@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
-  scope :most_order, -> {all.order(orders: :DESC).limit(1).first}
+  scope :best_seller, -> {all.order(orders: :DESC).limit(1).first}
+  scope :Seller_recomend, -> {all.order(orders: :DESC).limit(1).first}
   has_many :orders
   has_many :users, through: :orders
 
