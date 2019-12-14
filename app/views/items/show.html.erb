@@ -6,11 +6,13 @@
 <%# link_to "Listing Items", items_path %>
  <%# link_to "#{current_user.name}'s order", user_path(current_user) %>
  
- All <%= link_to "#{@item.name}'s orders", item_orders_path(@item) %>
+<p>All <%= link_to "#{@item.name}'s orders", item_orders_path(@item) %></p>
 <%#  link_to "Show all orders", item_orders_path(@item) %>
-<p>Reviews:</p>
-<%# review(@item) %>
 
+<%= review(@item) %>
+
+<!--
+<p>Reviews:</p>
 <% review_count = 0 %>
 <% subtotal = 0.0 %>
 <% review_avg = 0.0 %>
@@ -24,6 +26,7 @@
  <% review_avg = subtotal / review_count %>
 
 Rating (<%= pluralize(review_count, "review") %>): <%= review_avg >=0 ? review_avg.round(1) : 0%> Star<br />
+-->
 <br />
 <%= link_to "Back", items_path %>
 

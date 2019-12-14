@@ -1,1 +1,0 @@
-Review (<%= pluralize(@item.orders.review.count, "review") %>): <%= (subtotal) %><br />
