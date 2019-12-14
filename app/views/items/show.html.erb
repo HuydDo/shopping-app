@@ -4,8 +4,11 @@
 
 
 <%# link_to "Listing Items", items_path %>
-<%=  link_to "Show all orders", item_orders_path(@item) %>
+ <%# link_to "#{current_user.name}'s order", user_path(current_user) %>
+  <%= link_to "#{@item.name}'s orders", item_orders_path(@item) %>
+<%#  link_to "Show all orders", item_orders_path(@item) %>
 <p>Reviews:</p>
+<%= review(@item) %>
 <% @item.orders.each do |order| %>
   <div><%= order.review %></div>
 <% end %>
