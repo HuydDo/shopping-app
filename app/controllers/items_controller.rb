@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
  
   def index
     @items = Item.all
-    @popular = Item.best_seller
+    @best_seller = Item.most_orders
   end
 
   def show
