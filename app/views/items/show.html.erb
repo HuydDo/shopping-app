@@ -22,8 +22,9 @@
 <% end %>
 
  <% review_avg = subtotal / review_count %>
+
+Rating (<%= pluralize(review_count, "review") %>): <%= review_avg >=0 ? review_avg.round(1) : 0%> Star<br />
 <br />
-Rating (<%= pluralize(review_count, "review") %>): <%= review_avg >=0 ? review_avg : 0%> Star<br />
 <%= link_to "Back", items_path %>
 
 
