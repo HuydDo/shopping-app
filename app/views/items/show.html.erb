@@ -5,7 +5,8 @@
 
 <%# link_to "Listing Items", items_path %>
  <%# link_to "#{current_user.name}'s order", user_path(current_user) %>
-  <%= link_to "#{@item.name}'s orders", item_orders_path(@item) %>
+ 
+ All <%= link_to "#{@item.name}'s orders", item_orders_path(@item) %>
 <%#  link_to "Show all orders", item_orders_path(@item) %>
 <p>Reviews:</p>
 <%# review(@item) %>
@@ -15,14 +16,14 @@
 <% review_avg = 0.0 %>
 
 <% @item.orders.each do |order| %>
-  <div><%= order.review %></div>
+  <div><%= order.review.present? ? order.review : 0 %></div>
  <%  review_count += 1 %>
  <%  subtotal += order.review if !order.review.nil? %>
 <% end %>
 
  <% review_avg = subtotal / review_count %>
 <br />
-Rating (<%= pluralize(review_count, "review") %>): <%= review_avg %><br />
+Rating (<%= pluralize(review_count, "review") %>): <%= review_avg >=0 ? review_avg : 0%> Star<br />
 <%= link_to "Back", items_path %>
 
 
