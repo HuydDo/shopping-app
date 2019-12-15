@@ -2,12 +2,10 @@
   <strong>Name:</strong>
   <%= @item.name %>
 </p>
-
 <p>
   <strong>Price:</strong>
   <%= number_to_currency(@item.price) %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @item.description %>
@@ -30,20 +28,23 @@
 
   <!-- Qty: <%= f.select :quantity, (0..30), :prompt => 'Select' %><br /><br />
 -->
-  <label>Qty: </label>
-  <%= f.select :quantity, (1..30) %><br />
-  <%# f.hidden_field :authenticity_token, form_authenticity_token %>
-  <%# f.hidden_field :item_id %>
-  <%# f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :item_id, value: @item.id %>
-  <%# hidden_field_tag 'selected', 'none'  %>
   
+ 
+    <label>Qty: </label>
+    <%= f.select :quantity, (1..30) %><br />
+    <%= f.hidden_field :item_id, value: @item.id %>
+    <%# hidden_field_tag 'selected', 'none'  %>
+   
   <!-- for nested resource -->
-  <label>Select review star</label>
-  <%= f.select :review, (1..5) %><br><br>
-  <%= f.submit "Add to Cart" %>
-  <br />
-  <br />
+   
+    <% if !@order.item_id %>  <!-- only visible when add new item -->
+      <%= f.submit "Add to Cart" %>
+    <% else %>
+      <label>Rating:</label>  <!-- only visible when edit rating/order -->
+      <%= f.select :review, (1..5) %><br>
+      <%= f.submit "Update"%>
+    <% end %>
+  <br /><br />
 <% end %>
 
 
