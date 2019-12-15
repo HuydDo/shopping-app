@@ -30,7 +30,8 @@
 
   <!-- Qty: <%= f.select :quantity, (0..30), :prompt => 'Select' %><br /><br />
 -->
-  <strong>Qty: </strong><%= f.select :quantity, (1..30) %><br /><br />
+  <label>Qty: </label>
+  <%= f.select :quantity, (1..30) %><br />
   <%# f.hidden_field :authenticity_token, form_authenticity_token %>
   <%# f.hidden_field :item_id %>
   <%# f.hidden_field :user_id, value: current_user.id %>
@@ -38,7 +39,7 @@
   <%# hidden_field_tag 'selected', 'none'  %>
   
   <!-- for nested resource -->
-  <label>Select review star</label><br>
+  <label>Select review star</label>
   <%= f.select :review, (1..5) %><br><br>
   <%= f.submit "Add to Cart" %>
   <br />

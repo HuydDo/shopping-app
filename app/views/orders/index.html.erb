@@ -1,22 +1,21 @@
 <h2>Listing orders</h2>
+<h4> <%= Item.find(params[:item_id]).name %> </h4>
+
  <div class="media">
  <div class="media-body">
  <table class="table table-hover">
   <thead>
     <tr>
-      <th colspan = "5"></th>
+      <th colspan = "4"></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        <strong>User</strong>
-      </td>
-      <td>  
-         <strong>Items</strong>
+        <strong>Order by</strong>
       </td>
       <td>
-        <strong>Quantity</strong>
+        <strong>Qty</strong>
       </td>
       <td>
         <strong>Review</strong>
@@ -25,11 +24,11 @@
     <% @orders.each do |order| %>
     <tr>
       <td><%= User.find(order.user_id).name  %></td>
-      <td><%= Item.find(order.item_id).name %></td>
+      <%# Item.find(order.item_id).name %>
       <td><%= order.quantity %></td>
       <td><%= order.review %></td>
       <% if order.user == current_user %>
-       <td> <%= link_to "Edit Review", edit_item_order_path(order.item, order) if order.item %></td>
+       <td> <%= link_to "Edit", edit_item_order_path(order.item, order) if order.item %></td>
       <% end %>
     </tr>
     <% end %>
