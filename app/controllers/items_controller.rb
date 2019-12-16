@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
     @items = Item.all
     # raise params.inspect
     @best_seller = Item.most_orders
+    @seller_choice = Item.most_reviews
   end
 
   def show

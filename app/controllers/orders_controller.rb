@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
      
       redirect_to user_path(order.user)
     else
+      flash[:alert] = "Order wasn't created"
       redirect_to item_path(order.item_id)
     end
   end
