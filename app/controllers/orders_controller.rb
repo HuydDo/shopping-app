@@ -41,20 +41,13 @@ class OrdersController < ApplicationController
   end
 
   def update
-    # raise params.inspect
-    # @order.update(quantity: params[:order][:quantity])
-
-    #for nested resources
     @order.update(quantity: params[:order][:quantity],review: params[:order][:review])
-
     redirect_to user_path(current_user)
   end
 
-  # for nested resources
-  def new
-    @order = Order.new(item_id: params[:item_id])
-  end
-
+  # def new
+  #   @order = Order.new(item_id: params[:item_id])
+  # end
 
   def destroy
     Order.find(params[:id]).destroy
