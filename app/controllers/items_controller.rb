@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
  
   def index
     @items = Item.all
+    # raise params.inspect
     @best_seller = Item.most_orders
   end
 
