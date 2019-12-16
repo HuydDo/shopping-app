@@ -25,18 +25,19 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    # raise params.inspect  
     @item = Item.find_by(id: @order.item_id)
-  #  if params[:item_id]
-  #     item = Item.find_by(id: @order.item_id)
-  #     if item.nil?
-  #       redirect_to items_path, flash[:alert] "Item not found."
-  #     else
-  #       @order = item.orders.find_by(id: params[:id])
-  #       redirect_to item_orders_path(item), flash[:alert] "Order not found." if @order.nil?
-  #     end
-  #   else
-  #     @item = Item.find_by(id: @order.item_id)
-  #   end
+    # if params[:item_id]
+    #   item = Item.find_by(id: params[:item_id])
+    #   if item.nil?
+    #     redirect_to items_path, flash[:alert] = "Item not found."
+    #   else
+    #     @order = item.orders.find_by(id: params[:id])
+    #     redirect_to item_orders_path(item), flash[:alert] = "Order not found." if @order.nil?
+    #   end
+    # else
+    #   @order = Order.find_by(id: @order.item_id)
+    # end
   end
 
   def update
