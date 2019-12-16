@@ -5,13 +5,13 @@ class Item < ApplicationRecord
 
   
 
-  # scope :most_orders, -> {(
-  #   select("items.name, count(orders.id) as orders_count")
-  #   .joins(:orders)
-  #   .group("items.id")
-  #   .order("orders_count DESC")
-  #   .limit(1)
-  #   )}
+  scope :most_orders, -> {(
+    select("items.name, count(orders.id) as orders_count")
+    .joins(:orders)
+    .group("items.id")
+    .order("orders_count DESC")
+    .limit(1)
+    )}
 
     has_many :orders
   has_many :users, through: :orders
