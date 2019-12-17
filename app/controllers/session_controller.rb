@@ -22,6 +22,7 @@ class SessionController < ApplicationController
         redirect_to user_path(user)
         # redirect_to items_path
       else
+        # redirect with flash message
         render :new
       end
     end
