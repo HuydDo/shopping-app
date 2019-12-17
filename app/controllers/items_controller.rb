@@ -11,9 +11,6 @@ class ItemsController < ApplicationController
     @order = Order.new
   end
 
-  def update
-  end
-
   private 
   def find_item
     @item = Item.find_by(id: params[:id])
