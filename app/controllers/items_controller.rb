@@ -4,8 +4,8 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     # raise params.inspect
-    @best_seller = Item.most_orders
-    @seller_choice = Item.most_reviews
+    @best_seller = Item.most_orders.first
+    @seller_choice = Item.most_reviews.first
   end
 
   def show
