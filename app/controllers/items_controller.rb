@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
  
   def index
     @items = Item.all
-    # raise params.inspect
     @best_seller = Item.most_orders.first
     @seller_choice = Item.most_reviews.first
   end
@@ -21,7 +20,6 @@ class ItemsController < ApplicationController
   private 
   def find_item
     @item = Item.find_by(id: params[:id])
-    # @item = Item.find(params[:id])
   end
 
   def item_params

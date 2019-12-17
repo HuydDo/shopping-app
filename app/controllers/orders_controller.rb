@@ -2,22 +2,13 @@ class OrdersController < ApplicationController
   before_action :require_login, :find_item, only: [:edit,:update]
 
   def index
-    # raise params.inspect
     @orders = Order.where(item_id:params[:item_id])
   end
 
   def create
-    # raise params.inspect 
-    # raise order_params.inspect
-    # order = Order.create(user_id: current_user.id, item_id: params[:item_id], quantity: params[:quantity])
-    # order = Order.create(order_params)    
     order = current_user.orders.create(order_params)
-    # raise order.inspect
     if order
-      # response = order.order_item
       flash[:notice] = "Order was created"
-      # raise params.inspect  
-     
       redirect_to user_path(order.user)
     else
       flash[:alert] = "Order wasn't created"
@@ -45,10 +36,6 @@ class OrdersController < ApplicationController
     @order.update(quantity: params[:order][:quantity],review: params[:order][:review])
     redirect_to user_path(current_user)
   end
-
-  # def new
-  #   @order = Order.new(item_id: params[:item_id])
-  # end
 
   def destroy
     Order.find(params[:id]).destroy
