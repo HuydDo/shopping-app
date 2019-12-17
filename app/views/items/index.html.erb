@@ -1,35 +1,35 @@
 <h2>Listing Items</h2>
 <p><strong>Best Seller:</strong> <%= @best_seller.name %></p>
 <p><strong>Best Rating:</strong> <%= @seller_choice.name %> </p>
- <div class="media">
+<div class="media">
  <div class="media-body">
- <table class="table table-hover">
-  <thead>
-    <tr>
-      <th colspan = "3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <strong>Name</strong>
-      </td>
-      <td>  
-         <strong>Price</strong>
-      </td>
-      <td>
-        <strong>Details</strong>
-      </td>
-    </tr>
-    <% @items.each do |item| %>
-    <tr>
-      <td><%= link_to item.name, item_path(item) %></td>
-      <td><%= number_to_currency(item.price) %></td>
-      <td><%= item.description %></td>
-    </tr>
-    <% end %>
-  </tbody>
- </table>
+   <table class="table table-hover">
+    <thead>
+      <tr>
+        <th colspan = "3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <strong>Name</strong>
+        </td>
+        <td>  
+           <strong>Price</strong>
+        </td>
+        <td>
+          <strong>Details</strong>
+        </td>
+      </tr>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= link_to item.name, item_path(item) %></td>
+          <td><%= number_to_currency(item.price) %></td>
+          <td><%= item.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+   </table>
   </div>
 </div>
 

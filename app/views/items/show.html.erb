@@ -1,34 +1,7 @@
 <h1>Item</h1>
-
 <%= render 'orders/form' %>
-
-
-<%# link_to "Listing Items", items_path %>
- <%# link_to "#{current_user.name}'s order", user_path(current_user) %>
-
 <p><%= review(@item) %></p>
 <p><%= link_to "All #{@item.name}'s orders", item_orders_path(@item) %></p>
-<%#  link_to "Show all orders", item_orders_path(@item) %>
-
-
-
-<!--
-<p>Reviews:</p>
-<% review_count = 0 %>
-<% subtotal = 0.0 %>
-<% review_avg = 0.0 %>
-
-<% @item.orders.each do |order| %>
-  <div><%= order.review.present? ? order.review : 0 %></div>
- <%  review_count += 1 %>
- <%  subtotal += order.review if !order.review.nil? %>
-<% end %>
-
- <% review_avg = subtotal / review_count %>
-
-Rating (<%= pluralize(review_count, "review") %>): <%= review_avg >=0 ? review_avg.round(1) : 0%> Star<br />
--->
-
 <%= link_to "Back", items_path %>
 
 
