@@ -11,39 +11,28 @@
   <%= @item.description %>
 </p>
 
-<%# form_tag("/orders", method: "post") do %>
-<%# form_for(Order.new) do |f|%>
 <%= form_for(@order) do |f|%>
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
       <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-
-  <!-- Qty: <%= f.select :quantity, (0..30), :prompt => 'Select' %><br /><br />
--->
   
- 
-    <label>Qty: </label>
-    <%= f.select :quantity, (1..30) %><br />
-    <%= f.hidden_field :item_id, value: @item.id %>
-    <%# hidden_field_tag 'selected', 'none'  %>
-   
-  <!-- for nested resource -->
-   
-    <% if !@order.item_id %>  <!-- only visible when add new item -->
-      <%= f.submit "Add to Cart" %>
-    <% else %>
-      <label>Rating:</label>  <!-- only visible when edit rating/order -->
-      <%= f.select :review, (1..5) %><br>
-      <%= f.submit "Update"%>
-    <% end %>
+  <label>Qty: </label>
+  <%= f.select :quantity, (1..30) %><br />
+  <%= f.hidden_field :item_id, value: @item.id %>
+  <% if !@order.item_id %>  <!-- only visible when add new item -->
+    <%= f.submit "Add to Cart" %>
+  <% else %>
+    <label>Rating:</label>  <!-- only visible when edit rating/order -->
+    <%= f.select :review, (1..5) %><br>
+    <%= f.submit "Update"%>
+  <% end %>
   <br /><br />
 <% end %>
 

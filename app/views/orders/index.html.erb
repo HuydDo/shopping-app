@@ -21,15 +21,15 @@
         </td>
       </tr>
       <% @orders.each do |order| %>
-      <tr>
-        <td><%= User.find(order.user_id).name  %></td>
-        <%# Item.find(order.item_id).name %>
-        <td><%= order.quantity %></td>
-        <td><%= order.review %></td>
-        <% if order.user == current_user %>
-         <td> <%= link_to "Edit", edit_item_order_path(order.item, order) if order.item %></td>
-        <% end %>
-      </tr>
+        <tr>
+          <td><%= User.find(order.user_id).name  %></td>
+          <%# Item.find(order.item_id).name %>
+          <td><%= order.quantity %></td>
+          <td><%= order.review %></td>
+          <% if order.user == current_user %>
+           <td> <%= link_to "Edit", edit_item_order_path(order.item, order) if order.item %></td>
+          <% end %>
+        </tr>
       <% end %>
      </tbody>
    </table>
@@ -37,4 +37,3 @@
 </div>
 <br />
 <%= link_to "Back", items_path %>
-<%# link_to 'Back', user_path(current_user) %>
