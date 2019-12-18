@@ -1,5 +1,6 @@
 <h1>Edit Order</h1>
 <%= render "form" %>
-<%= link_to "Back", user_path(current_user.id) %>
-<br />
+
 <%= link_to "All #{@item.name}'s orders", item_orders_path(@item) %>
+<br />
+<%= link_to "Back", user_path(current_user.id) %>
