@@ -1,30 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-https://github.com/HuydDo/shopping-app
-
 Prerequisites
 The setups steps expect following tools installed on the system.
 
@@ -50,7 +23,7 @@ The setups steps expect following tools installed on the system.
   cd shopping-app
 
 
-2. Install dependencies
+2. Install the gems required by the applications
    bundle install
 
 3. Start the Rails server
