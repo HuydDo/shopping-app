@@ -6,66 +6,57 @@
     <%= csp_meta_tag %>
    
     <link rel="stylesheet" href="/styles/index.css">
+   
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_pack_tag 'application', turbolink_track: true %>
+
     
-    <%# stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%# javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-   
-   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-   <%= javascript_pack_tag 'application', turbolink_track: true %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
 
-    <%# javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%# javascript_tag 'application', 'data-turbolinks-track': 'reload' %>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
+  <body>
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li><%= link_to "Home", root_url %></li>
+       
+        <% if current_user %>
+          <li><%= link_to "Sign Out", session_path, method: :delete %></li>
+          <li><%= link_to "#{current_user.name}'s order", user_path(current_user) %></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to "Sign In", signin_path %></li>
+          <% if session[:user_id] %>
+            <h1><%= @user.name %></h1>
+            <h2>Email: <%= @user.email %></h2>
+            <h2>Facebook UID: <%= @user.uid %></h2>
+            <img src="<%= @user.image %>">
+          <% else %>
+             <li><%= link_to('Log in with Facebook', '/auth/facebook', method: :post) %></li>
+          <% end %>
+        <% end %>
+      </ul>
 
-<body>
-<div class="container">
-  <ul class="nav nav-tabs">
-    <li><%= link_to "Home", root_url %></li>
-   
-    <% if current_user %>
-      <li><%= link_to "Sign Out", session_path, method: :delete %></li>
-      <li><%= link_to "#{current_user.name}'s order", user_path(current_user) %></li>
-    <% else %>
-      <li><%= link_to "Sign Up", new_user_path %></li>
-      <li><%= link_to "Sign In", signin_path %></li>
-      <% if session[:user_id] %>
-        <h1><%= @user.name %></h1>
-        <h2>Email: <%= @user.email %></h2>
-        <h2>Facebook UID: <%= @user.uid %></h2>
-        <img src="<%= @user.image %>">
-      <% else %>
-         <li><%= link_to('Log in with Facebook', '/auth/facebook', method: :post) %></li>
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash[:error] %>
+        <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:error] %>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:alert] %>
+        </div>
       <% end %>
-     
-    <% end %>
-
-  </ul>
-
-  <% if flash[:notice] %>
-    <div class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:notice] %>
+      
+      <%= yield %>
+      
     </div>
-  <% elsif flash[:error] %>
-    <div class="alert alert-danger">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:error] %>
-    </div>
-  <% elsif flash[:alert] %>
-    <div class="alert alert-warning">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
-  
-  <%= yield %>
-  
-</div>
-
-  
-
   </body>
 </html>
