@@ -2,9 +2,17 @@
   <h2><%= pluralize(@user.errors.count, "error") %> 
   prohibited this user from being save:</h2>
   <% @user.errors.full_messages.each do |msg| %>
-    <p class="error" ><%= msg %></p> 
+  <p class="alert" ><%= msg %></p>
+    
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      This is alert box.
+      <%= msg %>
+    </div>
   <% end %>
 <% end %>
+
+
 
 <%= form_with model: @user, local: true do |f| %>
   <div class="field">
