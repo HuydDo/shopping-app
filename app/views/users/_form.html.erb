@@ -1,15 +1,15 @@
-<% if @user.errors.any? %>
-  <h2><%= pluralize(@user.errors.count, "error") %> 
-  prohibited this user from being save:</h2>
-  <% @user.errors.full_messages.each do |msg| %>
-   <p class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-    <%= msg %>
-   </p>
-  <% end %>
-<% end %>
-
 <%= form_with model: @user, local: true do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being save:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+     </div>
+  <% end %>
+  
   <div class="field">
     <%= f.label "Name:" %>
     <%= f.text_field :name %>
