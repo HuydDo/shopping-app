@@ -1,8 +1,7 @@
 <h1>Welcome <%= @user.name %></h1>
 
 <% if @user.orders %>
-   <h4>Shopping Cart:</h4> 
-   
+ <h4>Shopping Cart:</h4> 
  <div class="media">
   <div class="media-body">
     <table class="table table-hover">
@@ -29,6 +28,7 @@
 <% end %>
 <br />
 <%= link_to "Listing Items", items_path %>
+
 
 
 
