@@ -10,11 +10,13 @@ class SessionController < ApplicationController
         u.password = SecureRandom.hex
       end
       session[:user_id] = @user.id
+      flash[:notice] = "login sucessfully"
       redirect_to user_path(@user)
     else
       user = User.find_by(:name => params[:user][:name])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
+        flash[:notice] = "login sucessfully"
         redirect_to user_path(user)
       else
         flash[:error] = "name/password is incorrect"
