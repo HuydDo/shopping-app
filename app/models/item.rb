@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+  has_many :orders, dependent: :destroy
+  has_many :users, through: :orders
+
   scope :most_orders, -> {(
     select("items.name, sum(orders.quantity) as orders_sum")
     .joins(:orders)
@@ -15,6 +18,4 @@ class Item < ApplicationRecord
   .limit(1)
   )}
   
-  has_many :orders
-  has_many :users, through: :orders
 end
