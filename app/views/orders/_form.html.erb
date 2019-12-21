@@ -22,18 +22,26 @@
       </ul>
     </div>
   <% end %>
-  
-  <label>Qty: </label>
-  <%= f.select :quantity, (1..30) %><br /><br />
+  <div class="field">
+    <label>Qty: </label>
+    <%= f.select :quantity, (1..30) %>
+  </div>
+ 
   <%= f.hidden_field :item_id, value: @item.id %>
-  <% if !@order.item_id %>  <!-- only visible when add new item -->
-    <%= f.submit "Add to Cart" %>
+  <% if !@order.item_id %> 
+    <div class="actions"> <!-- only visible when add new item -->
+     <%= f.submit "Add to Cart" %>
+    </div>
   <% else %>
-    <label>Rating:</label>  <!-- only visible when edit rating/order -->
-    <%= f.select :review, (1..5) %><br /><br />
-    <%= f.submit "Update"%>
+   <div class="field">
+     <label>Rating:</label>  <!-- only visible when edit rating/order -->
+     <%= f.select :review, (1..5) %>
+   </div>
+   <div class="actions"> 
+     <%= f.submit "Update"%>
+   </div>
   <% end %>
-  <br /><br />
 <% end %>
+
 
 
