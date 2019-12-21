@@ -11,11 +11,11 @@ class Item < ApplicationRecord
     )}
 
   scope :most_reviews, -> {(
-  select("items.name, sum(orders.review) as reviews_sum")
-  .joins(:orders)
-  .group("items.id")
-  .order("reviews_sum DESC")
-  .limit(1)
-  )}
+    select("items.name, sum(orders.review) as reviews_sum")
+    .joins(:orders)
+    .group("items.id")
+    .order("reviews_sum DESC")
+    .limit(1)
+    )}
   
 end

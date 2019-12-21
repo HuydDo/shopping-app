@@ -23,12 +23,9 @@
       <% @orders.each do |order| %>
         <tr>
           <td><%= User.find(order.user_id).name  %></td>
-          <%# Item.find(order.item_id).name %>
           <td><%= order.quantity %></td>
           <td><%= order.review %></td>
           <% if order.user == current_user %>
-           <!-- <td> <%= link_to "Edit", edit_item_order_path(order.item, order) if order.item %></td>
-           -->
            <td> <%= link_to "Edit", edit_item_order_path(order.item, order), class: 'btn btn-mini btn-success' %></td>
           <% end %>
         </tr>

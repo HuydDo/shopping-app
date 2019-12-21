@@ -33,12 +33,7 @@
             <h2>Facebook UID: <%= @user.uid %></h2>
             <img src="<%= @user.image %>">
           <% else %>
-         <!--  <li><%= link_to('Log in with Facebook', '/auth/facebook', method: :post) %></li>
-         -->
-         
-             <li>Sign in with <span><%= link_to(image_tag("fbicon.png", width: '38px') , '/auth/facebook', method: :post) %></span></li>
-            
-
+            <li>Sign in with <span><%= link_to(image_tag("fbicon.png", width: '38px') , '/auth/facebook', method: :post) %></span></li>
           <% end %>
         <% end %>
       </ul>
