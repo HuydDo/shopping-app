@@ -20,7 +20,6 @@ class SessionController < ApplicationController
         redirect_to user_path(user)
       else
         flash[:error] = "name/password is incorrect"
-        # redirect_to new_user_path
         render :new
       end
     end
@@ -34,6 +33,7 @@ class SessionController < ApplicationController
   end
 
   private 
+  
   def auth
     request.env['omniauth.auth']
   end

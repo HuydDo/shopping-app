@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
   end
 
   private
+  
   def find_item
     @order = Order.find(params[:id])
   end

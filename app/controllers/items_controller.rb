@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   end
 
   private 
+  
   def find_item
     @item = Item.find_by(id: params[:id])
   end

@@ -29,12 +29,12 @@
  
   <%= f.hidden_field :item_id, value: @item.id %>
   <% if !@order.item_id %> 
-    <div class="actions"> <!-- only visible when add new item -->
+    <div class="actions"> 
      <%= f.submit "Add to Cart" %>
     </div>
   <% else %>
    <div class="field">
-     <label>Rating:</label>  <!-- only visible when edit rating/order -->
+     <label>Rating:</label>  
      <%= f.select :review, (1..5) %>
    </div>
    <div class="actions"> 
