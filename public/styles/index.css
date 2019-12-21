@@ -31,7 +31,7 @@ a:hover {
   background-color: rgb(166, 196, 184);
 }
 
-.field, .actions {
+.field .actions {
     margin-bottom: 10px;
 }
 
