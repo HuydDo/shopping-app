@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   def index
     if params[:item_id]
-      @orders = Order.where(item_id:params[:item_id])
+      @orders = Order.where(item_id: params[:item_id])
     else
       @orders = Order.all
     end

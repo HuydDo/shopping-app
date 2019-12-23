@@ -24,18 +24,21 @@ The setups steps expect following tools installed on the system.
   1.19.2
   
   If not, install right yarn version
-  pwd
+  `pwd`
     /home/huyddo
-  curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+  `curl --compressed -o- -L https://yarnpkg.com/install.sh | bash`
 
-  `cd to cd shopping-app`
+  `cd shopping-app`
   
   `Install webpacker`
   `rails webpacker:install`
   
-  
+## Installation 
 1. Check out the repository
    `git clone git@github.com:HuydDo/shopping-app.git`
+
+   Change dir to shopping-app 
+   
    `cd shopping-app`
 
 
@@ -47,3 +50,11 @@ The setups steps expect following tools installed on the system.
 
    `bundle exec rails s`
   And now you can visit the site with the URL http://localhost:3000
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/'sunny-sailor-0759'/best_laptop. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
