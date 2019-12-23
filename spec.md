@@ -12,8 +12,7 @@ Specs:
 - [x] Include login (how e.g. bcrypt )
 - [x] Include logout (how e.g. bcrypt)
 - [x] Include third party signup/login (how e.g. Facebook/OmniAuth)
-- [x] Include nested resource show or index (URL e.g. users/2/recipes  items/2/orders- edit items/3/orders/49/edit)
-edit, index
+- [x] Include nested resource show or index (URL e.g. users/2/recipes) edit, index (items/2/orders- edit items/3/orders/49/edit)
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 - [x] Include form display of validation errors (form URL e.g. /users/new; orders/edit)
 
