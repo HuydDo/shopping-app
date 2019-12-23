@@ -2,8 +2,12 @@ class OrdersController < ApplicationController
   before_action :require_login, :find_item, only: [:edit,:update]
 
   def index
-    @orders = Order.where(item_id:params[:item_id])
-  end
+    if params[:item_id]
+      @orders = Order.where(item_id:params[:item_id])
+    else
+      @orders = Order.all
+    end
+   end
 
   def create
     order = current_user.orders.create(order_params)

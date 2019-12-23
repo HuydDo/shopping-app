@@ -11,6 +11,21 @@ class ItemsController < ApplicationController
     @order = Order.new
   end
 
+  def new
+     @item = Item.new
+  end
+
+  def create 
+    item = Item.create(item_params)
+    if item
+      flash[:notice] = "Item was created"
+      redirect_to item_path(item)
+    else
+      flash[:alert] = "Item wasn't created"
+      redirect_to item_path(item)
+    end
+  end
+
   private 
   
   def find_item

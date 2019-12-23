@@ -2,6 +2,7 @@
 <%= render 'orders/form' %>
 <p><%= review(@item) %></p>
 <p><%= link_to "All #{@item.name}'s orders", item_orders_path(@item) %></p>
+<%= link_to "Create Item", new_item_path %>
 <%= link_to "Back", items_path %>
 
 
