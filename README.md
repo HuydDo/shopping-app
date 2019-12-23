@@ -1,3 +1,6 @@
+# Shopping App
+This Rails app create online order, review, and add item for sale.
+
 ## Prerequisites
 The setups steps expect following tools installed on the system.
 
