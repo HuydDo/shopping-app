@@ -10,7 +10,6 @@ module ItemsHelper
     
     @item.orders.each do |order|
       review_count += 1 
-      # subtotal += order.review if !order.review.nil?
       subtotal += order.review if value_set?(order)
     end
     review_avg = subtotal / review_count
