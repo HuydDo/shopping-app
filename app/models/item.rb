@@ -13,7 +13,7 @@ class Item < ApplicationRecord
     )}
 
   scope :most_reviews, -> {(
-    select("items.name, sum(orders.review) as reviews_sum")
+    select("items.name, avg(orders.review) as reviews_sum")
     .joins(:orders)
     .group("items.id")
     .order("reviews_sum DESC")
