@@ -1,6 +1,6 @@
 <pre>
-  <strong>Best Seller:</strong> <%= @best_seller.name %>
-  <strong>Best Rating:</strong> <%= @seller_choice.name %> 
+  <strong>Best Seller:</strong> <%= @best_seller.name if @best_seller %>
+  <strong>Best Rating:</strong> <%= @seller_choice.name if @seller_choice %> 
 </pre>
 <div class="media">
  <div class="media-body">
