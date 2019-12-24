@@ -5,7 +5,6 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.integer :item_id
       t.integer :quantity
       t.integer :review
-      t.boolean :delivered, default: false
       t.timestamps
     end
   end

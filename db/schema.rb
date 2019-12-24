@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_055726) do
+ActiveRecord::Schema.define(version: 2019_12_23_235224) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -18,15 +18,16 @@ ActiveRecord::Schema.define(version: 2019_12_20_055726) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.integer "item_id"
     t.integer "quantity"
+    t.integer "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "review"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +39,5 @@ ActiveRecord::Schema.define(version: 2019_12_20_055726) do
     t.integer "uid"
   end
 
+  add_foreign_key "items", "users"
 end
