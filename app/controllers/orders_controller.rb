@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     else
       @orders = Order.all
     end
-   end
+  end
 
   def create
     order = current_user.orders.create(order_params)

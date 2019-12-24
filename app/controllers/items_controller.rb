@@ -16,13 +16,14 @@ class ItemsController < ApplicationController
   end
 
   def create 
+    # raise params.inspect
     item = Item.create(item_params)
     if item
       flash[:notice] = "Item was created"
       redirect_to item_path(item)
     else
       flash[:alert] = "Item wasn't created"
-      redirect_to item_path(item)
+      redirect_to items_path(item)
     end
   end
 
