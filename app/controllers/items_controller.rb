@@ -9,21 +9,25 @@ class ItemsController < ApplicationController
 
   def show
     @order = Order.new
+
   end
 
   def new
      @item = Item.new
   end
 
+  
   def create 
     # raise params.inspect
     item = Item.create(item_params)
+    # item = current_user.items.create(item_params)
+    # raise params.inspect
     if item
       flash[:notice] = "Item was created"
       redirect_to item_path(item)
     else
       flash[:alert] = "Item wasn't created"
-      redirect_to items_path(item)
+      redirect_to items_path
     end
   end
 
@@ -37,3 +41,4 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :price, :description, :user_id)
   end
 end
+
