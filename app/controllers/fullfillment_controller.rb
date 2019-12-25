@@ -1,8 +1,14 @@
-class Orderfullfillment < ApplicationController
+class FullfillmentController < ApplicationController
   before_action :find_item, only: [:show]
 
-  def show
 
+  def index
+    @items = Item.all  
+    
+  end
+
+  def show
+   
   end
 
   private
