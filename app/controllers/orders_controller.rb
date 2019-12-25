@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :require_login, :find_item, only: [:edit,:update]
+  before_action :require_login, :find_order, only: [:edit,:update]
 
   def index
     if params[:item_id]
@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
 
   private
   
-  def find_item
+  def find_order
     @order = Order.find(params[:id])
   end
 
