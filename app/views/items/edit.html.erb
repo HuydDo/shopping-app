@@ -1,7 +1,7 @@
 <h1>Edit Item</h1>
 
 <%= form_for(@item) do |f| %>
-  
+  <% listed_item = @item.orders.find_by(item_id: @item.id) %>
     <div class="field">
       <%= f.label "Name:" %>
       <%= f.text_field :name %>
@@ -18,8 +18,12 @@
       <%= f.label "Description:" %>
       <%= f.text_area :description %>
     </div>
-
-   
+    <%= form_for(@order) do |f| %>
+      <div class="field">
+        <%= f.label "Shipping status:" %>
+        <%= f.check_box :shipping_status %>
+      </div>
+    <% end %>
     <div class="actions"> 
        <%= f.submit "Update"%>
     </div>

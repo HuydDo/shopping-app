@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
 
   def edit
     # raise params.inspect
+    @order = Order.find_by(item_id: params[:id])
   end
   
   def create 
