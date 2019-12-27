@@ -1,4 +1,4 @@
-class FullfillmentController < ApplicationController
+class OrderFullfillmentsController < ApplicationController
   before_action :find_item, only: [:show, :edit]
 
 
