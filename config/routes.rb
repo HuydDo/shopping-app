@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "home_pages#home"
   resources :items
   resources :users, only: [:new, :create, :show]
-  resources :order_fullfillments, only: [:index, :show]
+  resources :order_fullfillments, only: [:index, :show, :edit]
 
   get '/signin', to: 'session#new'
   post '/signin', to: 'session#create'
