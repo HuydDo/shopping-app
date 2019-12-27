@@ -1,20 +1,7 @@
 <h1>Edit Item</h1>
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency(@item.price) %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
-<% form_for(@item) do |f| %>
+
+<%= form_for(@item) do |f| %>
   
-  <%# if f.user_id == current_user.id %>
-    <%# listed_item = f.orders.find_by(item_id: item.id) %>
     <div class="field">
       <%= f.label "Name:" %>
       <%= f.text_field :name %>
@@ -23,20 +10,20 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
 
     <div class="field">
-      <%= f.label "Price" %>
+      <%= f.label "Price:" %>
       <%= f.text_field :price %>
     </div>
 
     <div class="field">
-      <%= f.label "Description" %>
+      <%= f.label "Description:" %>
       <%= f.text_area :description %>
     </div>
 
-     <%#listed_item.shipping_status.nil? ? 'pending': 'shipped' %></td>
+   
     <div class="actions"> 
        <%= f.submit "Update"%>
     </div>
-  <%# end %>
+ 
 <% end %>
 
 
