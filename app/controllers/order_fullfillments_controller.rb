@@ -1,5 +1,5 @@
 class OrderFullfillmentsController < ApplicationController
-  before_action :find_item, only: [:show, :edit]
+  before_action :find_item, only: [:show]
 
 
   def index
@@ -11,7 +11,7 @@ class OrderFullfillmentsController < ApplicationController
   end
   
   def edit
-  
+   
   end
 
   def update
