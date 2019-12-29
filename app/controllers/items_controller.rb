@@ -20,6 +20,18 @@ class ItemsController < ApplicationController
     @order = Order.find_by(item_id: params[:id])
   end
   
+  def update
+    #  raise params.inspect
+    @item.update(name: params[:item][:name],price: params[:item][:price], description: params[:item][:description])
+    @order.update(shipping_status: params[:order][:shipping_status])
+    flash[:notice] = "Item was updated"
+    redirect_to user_path(current_user)
+  end
+
+  def destroy
+
+  end
+
   def create 
     # raise params.inspect
     item = Item.create(item_params)

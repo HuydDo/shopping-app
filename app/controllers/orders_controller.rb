@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order.update(quantity: params[:order][:quantity],review: params[:order][:review])
+    @order.update(quantity: params[:order][:quantity],review: params[:order][:review], shipping_status: params[:order][:shipping_status])
     flash[:notice] = "Order was updated"
     redirect_to user_path(current_user)
   end
@@ -43,6 +43,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:user_id, :item_id, :quantity, :review)
+    params.require(:order).permit(:user_id, :item_id, :quantity, :review, :shipping_status)
   end 
 end

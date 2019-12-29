@@ -16,7 +16,7 @@ class OrderFullfillmentsController < ApplicationController
 
   def update
     @item.update(name: params[:item][:name],price: params[:item][:price])
-    flash[:notice] = "Order was updated"
+    flash[:notice] = "Item was updated"
     redirect_to user_path(current_user)
   end
 
