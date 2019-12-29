@@ -1,0 +1,27 @@
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@item.price) %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+ <%= form_for(@order) do |f| %>
+      <div class="field">
+        <%= f.label "Shipping status:" %>
+        <%= f.check_box :shipping_status %>
+      </div>
+    <%= f.hidden_field :item_id, value: @item.id %>
+    <div class="actions"> 
+       <%= f.submit "Update"%>
+    </div>
+
+<% end %>
+
+
+

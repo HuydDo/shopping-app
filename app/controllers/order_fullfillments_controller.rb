@@ -11,12 +11,16 @@ class OrderFullfillmentsController < ApplicationController
   end
   
   def edit
-   
+    # raise params.inspect
+    @order = Order.find(params[:id])
+    @item = Item.find_by(id: @order.item_id)
   end
 
   def update
-    @item.update(name: params[:item][:name],price: params[:item][:price])
-    flash[:notice] = "Item was updated"
+   
+    @order.update(shipping_status: params[:order][:shipping_status])
+    
+    flash[:notice] = "Shipping Status was updated"
     redirect_to user_path(current_user)
   end
 
@@ -33,6 +37,6 @@ class OrderFullfillmentsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :user_id)
+    params.require(:order).permit(:shipping_status)
   end
 end
