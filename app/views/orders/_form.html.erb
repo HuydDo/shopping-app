@@ -37,10 +37,7 @@
      <label>Rating:</label>  
      <%= f.select :review, (1..5) %>
    </div>
-   <p>
-  <strong>Shipping Status:</strong>
-  <%= (@order.shipping_status == false || @order.shipping_status.nil?) ? 'pending': 'shipped' %>
-</p>
+  <%= (@order.shipping_status== false || @order.shipping_status.nil?)  ? 'pending': 'shipped' %>
    <div class="actions"> 
      <%= f.submit "Update"%>
    </div>
