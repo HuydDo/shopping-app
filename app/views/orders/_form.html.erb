@@ -10,10 +10,7 @@
   <strong>Description:</strong>
   <%= @item.description %>
 </p>
-<p>
-  <strong>Shipping Status:</strong>
-  <%= @order.shipping_status == false ? 'pending': 'shipped' %>
-</p>
+
 <%= form_for(@order) do |f|%>
   <% if @order.errors.any? %>
     <div id="error_explanation">
@@ -40,6 +37,10 @@
      <label>Rating:</label>  
      <%= f.select :review, (1..5) %>
    </div>
+   <p>
+  <strong>Shipping Status:</strong>
+  <%= @order.shipping_status == false ? 'pending': 'shipped' %>
+</p>
    <div class="actions"> 
      <%= f.submit "Update"%>
    </div>
