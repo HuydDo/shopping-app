@@ -26,6 +26,16 @@ class OrdersController < ApplicationController
 
   def update
     # raise params.inspect
+    
+    if params[:order][:shipping_status] == '1'
+      shipping_status = TRUE;
+      params[:order][:shipping_status] = 1
+          raise params.inspect
+    else
+      shipping_status = FALSE;
+    end
+    
+
     @order.update(quantity: params[:order][:quantity],review: params[:order][:review],shipping_status: params[:order][:shipping_status])
     
     flash[:notice] = "Order was updated"
