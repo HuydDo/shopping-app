@@ -26,18 +26,27 @@ class OrdersController < ApplicationController
 
   def update
     # raise params.inspect
-    
+    @item = Item.find_by(id: @order.item_id)
+
     if params[:order][:shipping_status] == '1'
       shipping_status = TRUE;
-      params[:order][:shipping_status] = 1
-          raise params.inspect
-    else
-      shipping_status = FALSE;
-    end
-    
+      # params[:order][:shipping_status] = 1
+          # raise params.inspect
+    elsif params[:order][:shipping_status] == '0'
 
-    @order.update(quantity: params[:order][:quantity],review: params[:order][:review],shipping_status: params[:order][:shipping_status])
-    
+      shipping_status = FALSE;
+
+    else
+      shipping_status = @order.shipping_status
+      # raise params.inspect
+    end
+    # if @item.user_id     #       raise params.inspect
+
+    #   @order.update(shipping_status: shipping_status)
+    # else
+
+      @order.update( quantity: params[:order][:quantity],review: params[:order][:review],shipping_status: shipping_status)
+    # end
     flash[:notice] = "Order was updated"
     # raise params.inspect
     redirect_to user_path(current_user)
