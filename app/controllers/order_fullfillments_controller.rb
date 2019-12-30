@@ -18,16 +18,16 @@ class OrderFullfillmentsController < ApplicationController
 
   def update
    
-    @order.update(shipping_status: params[:order][:shipping_status])
+    # @order.update(shipping_status: params[:order][:shipping_status])
     
-    flash[:notice] = "Shipping Status was updated"
-    redirect_to user_path(current_user)
+    # flash[:notice] = "Shipping Status was updated"
+    # redirect_to user_path(current_user)
   end
 
   def destroy
-    Order.find(params[:id]).destroy
-    flash[:notice] = "Order was deleted"
-    redirect_to user_path(current_user)
+    # Order.find(params[:id]).destroy
+    # flash[:notice] = "Order was deleted"
+    # redirect_to user_path(current_user)
   end
 
   private

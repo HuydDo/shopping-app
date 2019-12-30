@@ -39,7 +39,7 @@
    </div>
    <p>
   <strong>Shipping Status:</strong>
-  <%= @order.shipping_status == false ? 'pending': 'shipped' %>
+  <%= (@order.shipping_status == false || @order.shipping_status.nil?) ? 'pending': 'shipped' %>
 </p>
    <div class="actions"> 
      <%= f.submit "Update"%>

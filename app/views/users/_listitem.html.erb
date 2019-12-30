@@ -2,7 +2,7 @@
   <td><%= order.item.name %></td>
   <td><%=  number_to_currency(order.item.price) %></td>
   <td><%= order.quantity %></td>
-  <td><%= order.shipping_status==false ? 'pending': 'shipped' %></td>
+  <td><%= (order.shipping_status==false || order.shipping_status.nil?) ? 'pending': 'shipped' %></td>
   <td><%= number_to_currency(order.item.price * order.quantity)%></td>
   <td><%= link_to "Edit", edit_order_path(order), class: 'btn btn-mini btn-success' %></td>
   <td><%= link_to "Delete", order_path(order), method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: "Are you sure you want to delete this order?" } %></td>

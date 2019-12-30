@@ -26,8 +26,10 @@ class OrdersController < ApplicationController
 
   def update
     # raise params.inspect
-    @order.update(quantity: params[:order][:quantity],review: params[:order][:review], shipping_status: params[:order][:shipping_status])
+    @order.update(quantity: params[:order][:quantity],review: params[:order][:review],shipping_status: params[:order][:shipping_status])
+    
     flash[:notice] = "Order was updated"
+    # raise params.inspect
     redirect_to user_path(current_user)
   end
 
