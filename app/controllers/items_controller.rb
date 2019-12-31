@@ -9,6 +9,8 @@ class ItemsController < ApplicationController
 
   def show
     @order = Order.new
+
+    
   end
 
   def new
@@ -26,7 +28,7 @@ class ItemsController < ApplicationController
   #   @order.update(shipping_status: params[:order][:shipping_status])
   #   flash[:notice] = "Item was updated"
   #   redirect_to user_path(current_user)
-  # end
+  end
 
   def destroy
     Item.find(params[:id]).destroy

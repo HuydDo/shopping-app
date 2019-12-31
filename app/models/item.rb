@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :users, through: :orders
 
-  # belongs_to :seller, class_name:"User"
+  belongs_to :seller, class_name:"User"
   
   scope :most_orders, -> {(
     select("items.name, sum(orders.quantity) as orders_sum")
