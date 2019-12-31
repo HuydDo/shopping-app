@@ -14,7 +14,8 @@
  <%= form_for(@order) do |f| %>
       <div class="field">
         <%= f.label "Shipping status:" %>
-        <%= f.check_box :shipping_status %>
+    
+        <%= f.check_box :shipping_status, {},"1", "0"%>
       </div>
     <%= f.hidden_field :item_id, value: @item.id %>
 
