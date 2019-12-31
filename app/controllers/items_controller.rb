@@ -9,8 +9,6 @@ class ItemsController < ApplicationController
 
   def show
     @order = Order.new
-
-    
   end
 
   def new

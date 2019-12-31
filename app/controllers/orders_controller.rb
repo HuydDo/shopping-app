@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
     #   @order.update(shipping_status: shipping_status)
     # else
 
-      @order.update( quantity: params[:order][:quantity],review: params[:order][:review],shipping_status: params[:order][:shipping_status])
+      @order.update(quantity: params[:order][:quantity],review: params[:order][:review],shipping_status: shipping_status)
     # end
     flash[:notice] = "Order was updated"
     # raise params.inspect
