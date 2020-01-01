@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    raise params.inspect
     @user = User.find_by(:id => params[:id])
   end
 
