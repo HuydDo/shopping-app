@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_31_045141) do
+ActiveRecord::Schema.define(version: 2020_01_02_002851) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_12_31_045141) do
     t.integer "uid"
   end
 
+  add_foreign_key "items", "users"
   add_foreign_key "items", "users"
   add_foreign_key "items", "users"
   add_foreign_key "items", "users"
