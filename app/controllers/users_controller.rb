@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def show
     # raise params.inspect
     @user = User.find_by(:id => params[:id])
+    @listed_items = Item.where("user_id = ?", params[:id])
   end
 
   private

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "home_pages#home"
-  resources :items
+  resources :items, only: [:new, :create, :show]
   resources :users, only: [:new, :create, :show]
   resources :order_fullfillments, only: [:index, :show, :edit]
 
@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
  resources :items, only: [:show, :index] do
   resources :orders, only: [:show, :index, :new,:edit]
+ end
+
+ resources :users, only: [:show, :index] do
+  resources :items, only: [:index]
  end
 
 end

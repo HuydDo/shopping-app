@@ -32,12 +32,17 @@
 <%= link_to "Listing All Orders", orders_path, class: 'btn btn-mini' %><br />
 <%= link_to "Listing Items", items_path, class: 'btn btn-mini' %>
 
-<%= link_to "Listing Items", items_path, class: 'btn btn-mini' %>
-<%# @player_sessions =  PlayerSession.where("player_alias = ?", params[:id]) %>
-<% @listed_items = Item.where("user_id = ?", params[:id])  %>
+
+<%= link_to "All #{@user.name}'s listed items", user_items_path(@user.id, @user.items) %>
+
+<td> <%# link_to "Edit", edit_item_order_path(order.item, order), class: 'btn btn-mini btn-success' %></td>
+
+<%# @listed_items = Item.where("user_id = ?", params[:id])  %>
 <% @listed_items.each do |listed_item| %>
   <ul>
+    <li><h4>Name:</h4><%= listed_item.name %></li>
     <li><h4>Price:</h4><%= listed_item.price %></li>
+    <li><h4>Description:</h4><%= listed_item.description %></li>
   </ul>
 <% end %>
 
