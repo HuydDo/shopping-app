@@ -30,10 +30,9 @@
 <br />
 
 <%= link_to "Listing All Orders", orders_path, class: 'btn btn-mini' %><br />
-<%= link_to "Listing Items", items_path, class: 'btn btn-mini' %>
+<%= link_to "Listing Items", items_path, class: 'btn btn-mini' %><br />
 
-
-<%= link_to "All #{@user.name}'s listed items", user_items_path(@user.id, @user.items) %>
+<%= link_to "All #{@user.name}'s listed items", user_items_path(@user.id, @user.items), class: 'btn btn-mini' %>
 
 <td> <%# link_to "Edit", edit_item_order_path(order.item, order), class: 'btn btn-mini btn-success' %></td>
 
