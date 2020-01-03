@@ -18,7 +18,7 @@ Rails.application.routes.draw do
  end
 
  resources :users, only: [:show, :index] do
-  resources :items, only: [:index]
+  resources :items, only: [:show, :index, :new,:edit]
  end
 
 end
