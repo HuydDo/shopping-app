@@ -2,7 +2,12 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [ :edit, :update, :show]
  
   def index
-    @items = Item.all
+    #  raise params.inspect
+    if params[:user_id]
+      @items = Item.where(user_id: params[:user_id])
+    else
+      @items = Item.all
+    end
     @best_seller = Item.most_orders.first
     @seller_choice = Item.most_reviews.first
   end
