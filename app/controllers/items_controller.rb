@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :find_item, only: [:show, :edit]
+  before_action :find_item, only: [ :edit, :update]
  
   def index
     @items = Item.all
@@ -17,15 +17,15 @@ class ItemsController < ApplicationController
 
   def edit
     # raise params.inspect
-    @order = Order.find_by(item_id: params[:id])
+    # @order = Order.find_by(item_id: params[:id])
   end
   
   def update
     #  raise params.inspect
-  #   @item.update(name: params[:item][:name],price: params[:item][:price], description: params[:item][:description])
-  #   @order.update(shipping_status: params[:order][:shipping_status])
-  #   flash[:notice] = "Item was updated"
-  #   redirect_to user_path(current_user)
+    @item.update(name: params[:item][:name], price: params[:item][:price], description: params[:item][:description], shipping_status: params[:item][:shipping_status])
+    # @order.update(shipping_status: params[:order][:shipping_status])
+    flash[:notice] = "Item was updated"
+    redirect_to user_path(current_user)
   end
 
   def destroy
@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :user_id)
+    params.require(:item).permit(:name, :price, :description, :user_id, :shipping_status)
   end
 end
 

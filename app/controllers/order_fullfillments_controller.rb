@@ -1,5 +1,5 @@
 class OrderFullfillmentsController < ApplicationController
-  before_action :find_item, only: [:show]
+  before_action :find_item, only: [:show, :edit]
 
 
   def index
@@ -13,16 +13,16 @@ class OrderFullfillmentsController < ApplicationController
   def edit
     # raise params.inspect
     @order = Order.find(params[:id])
-    @item = Item.find_by(id: @order.item_id)
+    # @item = Item.find_by(id: @order.item_id)
   end
 
   def update
    
-    # @order.update(shipping_status: params[:order][:shipping_status])
+  #   @order.update(shipping_status: params[:order][:shipping_status])
     
-    # flash[:notice] = "Shipping Status was updated"
-    # redirect_to user_path(current_user)
-  end
+  #   flash[:notice] = "Shipping Status was updated"
+  #   redirect_to user_path(current_user)
+   end
 
   def destroy
     # Order.find(params[:id]).destroy

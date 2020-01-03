@@ -24,21 +24,17 @@
       </tr>
       <% @items.each do |item| %>
 
-      <%# @listed_items = Item.where("user_id = ?", params[:id])  %>
-      <% if item.user_id == current_user.id %>
-       
-       <%# @listed_items .each do |item| %>
-       
-         <%= render partial: 'listeditem', locals: {item: item} %>
       
-      <% else %>
+      <%# if item.user_id == current_user.id %>
+       <%# render partial: 'listeditem', locals: {item: item} %>
+      <%# else %>
        <%#@items.each do |item| %>
         <tr>
           <td><%= link_to item.name, item_path(item) %></td>
           <td><%= number_to_currency(item.price) %></td>
           <td><%= item.description %></td>
         </tr>
-      <%   end %>
+      <%# end %>
       <% end %>
     </tbody>
    </table>

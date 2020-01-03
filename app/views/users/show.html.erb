@@ -18,7 +18,9 @@
       </thead>
       <tbody>
         <% @user.orders.each do |order| %>
-           <%= render partial: 'listitem', locals: {order: order} %>
+          <% if order.present? %>
+           <%= render partial: 'listitem', locals: {order: order}  %>
+         <%  end %>
         <% end %>
       </tbody>
      </table>

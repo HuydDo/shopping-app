@@ -1,27 +1,31 @@
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency(@item.price) %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
+ <%= form_for(@item) do |f| %>
+ <%# form_with model:@item, local: true do |f| %>
 
- <%#form_for(@order) do |f| %>
- <%= form_with model:@order, local: true do |f| %>
-      <div class="field">
-        <%= f.label "Shipping status" %>
-        <%= check_box_tag(:shipping_status) %>
-        <%# f.check_box :shipping_status, {},"1", "0"%>
-      </div>
-    <%= f.hidden_field :item_id, value: @item.id %>
-    <div class="actions"> 
-       <%= f.submit "Update"%>
-    </div>
+ <div class="field">
+    <%= f.label "Name:" %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <div class="field">
+    <%= f.label "Price:" %>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label "Description:" %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Shipping status" %>
+    <%= check_box_tag(:shipping_status) %>
+    <%# f.check_box :shipping_status, {},"1", "0"%>
+  </div>
+   
+  <div class="actions"> 
+     <%= f.submit "Update"%>
+  </div>
 
 <% end %>
 
