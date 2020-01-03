@@ -36,16 +36,5 @@
 
 <%= link_to "All #{@user.name}'s listed items", user_items_path(@user.id, @listed_items), class: 'btn btn-mini' %>
 
-<td> <%# link_to "Edit", edit_item_order_path(order.item, order), class: 'btn btn-mini btn-success' %></td>
 
-<%# @listed_items = Item.where("user_id = ?", params[:id])  %>
-<%# render 'items/listeditem' %>
- <%# render partial: 'listeditem', locals: {items: listed_items} %>
-<% @listed_items.each do |listed_item| %>
-  <ul>
-    <li><h4>Name:</h4><%= listed_item.name %></li>
-    <li><h4>Price:</h4><%= listed_item.price %></li>
-    <li><h4>Description:</h4><%= listed_item.description %></li>
-  </ul>
-<% end %>
 
