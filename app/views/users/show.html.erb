@@ -18,8 +18,8 @@
       </thead>
       <tbody>
         <% @user.orders.each do |order| %>
-          <%= render partial: 'listitem', locals: {order: order} %>
-       <% end %>
+           <%= render partial: 'listitem', locals: {order: order} %>
+        <% end %>
       </tbody>
      </table>
   </div>
@@ -37,6 +37,8 @@
 <td> <%# link_to "Edit", edit_item_order_path(order.item, order), class: 'btn btn-mini btn-success' %></td>
 
 <%# @listed_items = Item.where("user_id = ?", params[:id])  %>
+<%# render 'items/listeditem' %>
+ <%# render partial: 'listeditem', locals: {items: listed_items} %>
 <% @listed_items.each do |listed_item| %>
   <ul>
     <li><h4>Name:</h4><%= listed_item.name %></li>
