@@ -34,7 +34,5 @@
 <%= link_to "Listing All Orders", orders_path, class: 'btn btn-mini' %><br />
 <%= link_to "Listing Items", items_path, class: 'btn btn-mini' %><br />
 
-<%= link_to "All #{@user.name}'s listed items", user_items_path(@user.id, @listed_items), class: 'btn btn-mini' %>
-
-
+<%= link_to "All #{@user.name}'s listed items", user_items_path(@user), class: 'btn btn-mini' %>
 

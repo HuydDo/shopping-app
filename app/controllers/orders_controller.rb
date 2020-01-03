@@ -21,19 +21,15 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    # raise params.inspect
     @item = Item.find_by(id: @order.item_id)
-    # @item = Item.find_by(id: params[:id])
   end
 
   def update
-    # raise params.inspect
     @item = Item.find_by(id: @order.item_id)
  
     @order.update(quantity: params[:order][:quantity],review: params[:order][:review])
    
     flash[:notice] = "Order was updated"
-    # raise params.inspect
     redirect_to user_path(current_user)
   end
 

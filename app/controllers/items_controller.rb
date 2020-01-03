@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [ :edit, :update, :show]
  
   def index
-    #  raise params.inspect
     if params[:user_id]
       @items = Item.where(user_id: params[:user_id])
     else
@@ -21,14 +20,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # raise params.inspect
-    # @order = Order.find_by(item_id: params[:id])
+  
   end
   
   def update
-    #  raise params.inspect
     @item.update(name: params[:item][:name], price: params[:item][:price], description: params[:item][:description], shipping_status: params[:item][:shipping_status])
-    # @order.update(shipping_status: params[:order][:shipping_status])
     flash[:notice] = "Item was updated"
     redirect_to order_fullfillments_path
   end
@@ -40,10 +36,8 @@ class ItemsController < ApplicationController
   end
 
   def create 
-    # raise params.inspect
     item = Item.create(item_params)
-    # item = current_user.items.create(item_params)
-    # raise params.inspect
+    
     if item
       flash[:notice] = "Item was created"
       redirect_to item_path(item)

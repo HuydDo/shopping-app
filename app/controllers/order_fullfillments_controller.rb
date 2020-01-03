@@ -11,23 +11,15 @@ class OrderFullfillmentsController < ApplicationController
   end
   
   def edit
-    # raise params.inspect
     @order = Order.find(params[:id])
-    # @item = Item.find_by(id: @order.item_id)
   end
 
   def update
-   
-  #   @order.update(shipping_status: params[:order][:shipping_status])
-    
-  #   flash[:notice] = "Shipping Status was updated"
-  #   redirect_to user_path(current_user)
-   end
+ 
+  end
 
   def destroy
-    # Order.find(params[:id]).destroy
-    # flash[:notice] = "Order was deleted"
-    # redirect_to user_path(current_user)
+   
   end
 
   private

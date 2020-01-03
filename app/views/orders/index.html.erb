@@ -22,8 +22,6 @@
       </tr>
       <% @orders.each do |order| %>
         <tr>
-      <!--    <td><%= User.find(order.user_id).name  %></td>
-      -->
           <td><%= order.user.name  %></td>
           <td><%= order.quantity %></td>
           <td><%= order.review %></td>
