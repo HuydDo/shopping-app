@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     @item.update(name: params[:item][:name], price: params[:item][:price], description: params[:item][:description], shipping_status: params[:item][:shipping_status])
     # @order.update(shipping_status: params[:order][:shipping_status])
     flash[:notice] = "Item was updated"
-    redirect_to user_path(current_user)
+    redirect_to order_fullfillments_path
   end
 
   def destroy
