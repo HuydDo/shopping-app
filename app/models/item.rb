@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   has_many :users, through: :orders
 
   # belongs_to :seller, class_name:"User"
-  belongs_to :user, class_name:"User"
+  # belongs_to :user
   scope :most_orders, -> {(
     select("items.name, sum(orders.quantity) as orders_sum")
     .joins(:orders)

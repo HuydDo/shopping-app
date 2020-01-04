@@ -3,7 +3,9 @@ class User < ApplicationRecord
   has_many :items, through: :orders
 
   # has_many :listed_items, foreign_key:"seller_id", class_name:"Item"
+  
   has_many :listed_items, foreign_key:"user_id", class_name:"Item"
+  has_many :orders_to_fulfill, through: :listed_items, source: :order
 
   validates :name, uniqueness: true
   validates :name, presence: true
