@@ -16,7 +16,7 @@ gem 'sass-rails', '~> 5'
 gem 'webpacker', '~> 4.0'
 
 # bootstrap
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass', '3.4.1'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
